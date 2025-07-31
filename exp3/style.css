@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI";
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.search-box input[type="search"] {
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.search-box button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.banner {
+    height: 50vh;
+    width: 100%;
+    background-image: url("./dcc9a6174384073.64a1bf7873541.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* 3b. Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+}
+.welcome-section h2 {
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+/* 3c. Image Gallery */
+.gallery-container {
+    padding: 3rem 2rem;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    height: 350px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#item1 { background-image: url('./ai-in-robotics-1.png'); }
+#item2 { background-image: url('./images.jpg'); }
+#item3 { background-image: url('./smart-city-illustration.jpg'); }
+#item4 { background-image: url('./biomedical-equipment-technician.jpg'); }
+
+.caption-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.content-feature {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.content-feature:nth-of-type(even) {
+    flex-direction: row-reverse;
+    background-color: #f8f9fa;
+}
+
+.feature-image {
+    flex: 1;
+}
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #343a40;
+    color: #f8f9fa;
+    margin-top: 2rem;
+}
+
+
+@media (max-width: 768px) {
+    .site-header, .content-feature {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .content-feature:nth-of-type(even) {
+        flex-direction: column;
+    }
+}
