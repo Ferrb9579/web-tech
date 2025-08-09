@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URK23CS1005 - Login Page</title>
+</head>
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f8fa;
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 120px;
+    }
+
+    .sidebar.left {
+        left: 0;
+        background-color: #eef2f7;
+    }
+
+    .sidebar.right {
+        right: 0;
+        background-color: #fcd96a;
+    }
+
+    .login-box {
+        display: flex;
+        width: 80%;
+        max-width: 1200px;
+        height: 80%;
+        max-height: 700px;
+        background-color: #ffffff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        z-index: 10;
+        overflow: hidden;
+        flex-direction: column;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .logo span {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-left: 30px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #555;
+        font-size: 1rem;
+        font-weight: 500;
+        padding-bottom: 5px;
+        transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        color: #e53935;
+        border-bottom: 2px solid #e53935;
+    }
+
+    .main-content {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .login-section {
+        flex-basis: 50%;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login-section h1 {
+        font-size: 2.5rem;
+        color: #008080;
+        margin-bottom: 40px;
+        font-weight: 300;
+    }
+
+    .input-group {
+        margin-bottom: 25px;
+    }
+
+    .input-group label {
+        display: block;
+        color: #008080;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .input-group input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        padding: 10px 0;
+        font-size: 1rem;
+        background-color: transparent;
+        transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+        outline: none;
+        border-bottom-color: #008080;
+    }
+
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+    }
+
+    .form-options .remember-me {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-options .remember-me input {
+        margin-right: 8px;
+    }
+
+    .form-options a {
+        color: #555;
+        text-decoration: none;
+    }
+
+    .form-options a:hover {
+        text-decoration: underline;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background-color: #fcd96a;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: #fbc02d;
+    }
+
+    .illustration-section {
+        flex-basis: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f4f8;
+    }
+
+    .illustration-section img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./innovatex_it_solutions_llc_logo.jpg" alt="Company Logo">
+            <span>INNOVATEX</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Showcase</a></li>
+                <li><a href="#">Rent Books</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Magazines</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar left"></div>
+        <div class="login-box">
+            <div class="main-content">
+                <div class="login-section">
+                    <h1>WELCOME</h1>
+                    <form>
+                        <div class="input-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" value="">
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" value="">
+                        </div>
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Remember</label>
+                            </div>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="submit-btn">SUBMIT</button>
+                    </form>
+                </div>
+                <div class="illustration-section">
+                    <img src="./welcome-sign-letters-with-confetti-background-celebration-greeting-holiday-illustration-photo.jpg"
+                        alt="Welcome Illustration">
+                </div>
+            </div>
+        </div>
+        <div class="sidebar right"></div>
+    </div>
+</body>
+
+</html>
