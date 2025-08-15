@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URK23CS1005 - BMI Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .bmi-calculator {
+            width: 550px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #49a1b2;
+            color: white;
+            padding: 20px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .header p {
+            margin: 5px 0 0;
+        }
+        .main-content {
+            display: flex;
+            align-items: center;
+            padding: 30px 20px;
+        }
+        .inputs {
+            flex: 1;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .input-group input {
+            width: 80px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .input-group span {
+            margin-left: 10px;
+            color: #555;
+        }
+        .result-display {
+            flex: 1;
+            text-align: center;
+        }
+        #bmi-value {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #49a1b2;
+            line-height: 1;
+        }
+        #bmi-status {
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bmi-calculator">
+        <div class="header">
+            <h2>Body mass index (BMI)</h2>
+            <p>A measure of body fat in adults</p>
+        </div>
+        <div class="main-content">
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="weight">Weight</label>
+                    <div>
+                        <input type="number" id="weight" oninput="calculateBMI()" value="85">
+                        <span>kg</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="height">Height</label>
+                    <div>
+                        <input type="number" id="height" oninput="calculateBMI()" value="180">
+                        <span>cm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-display">
+                <div id="bmi-value">0.0</div>
+                <div id="bmi-status">Enter values</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        calculateBMI();
+
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightCm = parseFloat(document.getElementById('height').value);
+            const bmiValueElement = document.getElementById('bmi-value');
+            const bmiStatusElement = document.getElementById('bmi-status');
+
+            if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+                bmiValueElement.innerHTML = "0.0";
+                bmiStatusElement.innerHTML = "Enter valid values";
+                return;
+            }
+
+            const heightM = heightCm / 100;
+
+            const bmi = weight / (heightM * heightM);
+            
+            bmiValueElement.innerHTML = bmi.toFixed(1);
+
+            let status = '';
+            if (bmi < 18.5) {
+                status = "Underweight";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                status = "Normal weight";
+            } else if (bmi >= 25 && bmi < 30) {
+                status = "Overweight";
+            } else {
+                status = "Obese";
+            }
+
+            bmiStatusElement.innerHTML = status + " BMI";
+        }
+    </script>
+</body>
+</html>
